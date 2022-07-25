@@ -26,9 +26,9 @@ function App() {
   return (
     <div className="container">
       <Header 
-        StartDate={startDate} handleSetStartDate={handleSetStartDate}
-        EndDate={endDate} handleSetEndDate={handleSetEndDate}
-        AbvFilter={abvFilter} handleSetAbvFilter={handleSetAbvFilter}
+        startDate={startDate} handleSetStartDate={handleSetStartDate}
+        endDate={endDate} handleSetEndDate={handleSetEndDate}
+        abvFilter={abvFilter} handleSetAbvFilter={handleSetAbvFilter}
       />
       <Graph data={data} />
     </div>
