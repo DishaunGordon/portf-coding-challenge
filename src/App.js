@@ -9,9 +9,9 @@ import Graph from './components/Graph';
 
 function App() {
   const {data, isLoading, error} = UseAxios("https://api.punkapi.com/v2/beers?per_page=80");
-  const {startDate, setStartDate} = useState(new Date("April, 2007"));
-  const {endDate, setEndDate} = useState(new Date());
-  const {abvFilter, setAbvFilter} = useState(10);
+  const [startDate, setStartDate] = useState(new Date("April, 2007"));
+  const [endDate, setEndDate] = useState(new Date());
+  const [abvFilter, setAbvFilter] = useState(10);
 
   const handleSetStartDate = (newStartDate) => {
     setStartDate(newStartDate);
