@@ -8,11 +8,13 @@ import Header from './components/Header';
 import Graph from './components/Graph';
 
 function App() {
+  // States
   const {data, isLoading, error} = UseAxios("https://api.punkapi.com/v2/beers?per_page=80");
   const [startDate, setStartDate] = useState(new Date("April, 2007"));
   const [endDate, setEndDate] = useState(new Date());
   const [abvFilter, setAbvFilter] = useState(10);
 
+  // Handles logic that changes state
   const handleSetStartDate = (newStartDate) => {
     setStartDate(newStartDate);
   }
@@ -22,7 +24,8 @@ function App() {
   const handleSetAbvFilter = (newAbvFilter) => {
     setAbvFilter(newAbvFilter);
   }
-   
+  
+  // JSX
   return (
     <div className="container">
       <Header 

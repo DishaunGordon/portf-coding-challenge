@@ -3,6 +3,8 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 
 function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvFilter, handleSetAbvFilter }) {
+
+    // Handles logic that changes state in <App />
     const onStartDateChange = (newDate) => {
         handleSetStartDate(newDate);
     };
@@ -13,6 +15,7 @@ function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvF
         handleSetAbvFilter(e.target.value);
     };
 
+    // JSX
     return ( 
         <div className="header">
             <div className="header__date">
