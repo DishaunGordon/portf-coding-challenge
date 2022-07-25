@@ -21,17 +21,21 @@ function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvF
             <div className="header__date">
                 <div className="header__date--title">Date</div>
                 <div className="header__date--inputContainer">
-                <DatePicker className="header__date--pickerStart"
+                <DatePicker className="header__date--picker header__date--pickerStart"
                     selected={startDate}
                     onChange={onStartDateChange}
                     dateFormat="MM/yyyy"
+                    minDate={startDate}
+                    maxDate={endDate}
                     showMonthYearPicker
                     showFullMonthYearPicker
                 />
-                <DatePicker className="header__date--pickerEnd"
+                <DatePicker className="header__date--picker header__date--pickerEnd"
                     selected={endDate}
                     onChange={onEndDateChange}
                     dateFormat="MM/yyyy"
+                    minDate={startDate}
+                    maxDate={new Date()}
                     showMonthYearPicker
                     showFullMonthYearPicker
                 />
@@ -40,7 +44,15 @@ function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvF
             <div className="header__abv">
                 <div className="header__abv--title">abv</div>
                 <div className="header__abv--inputContainer">
-
+                    <input 
+                        type="number"
+                        className="header__abv--input"
+                        value={abvFilter}
+                        onChange={onAbvFilterChange}
+                        step="0.1"
+                        min="0"
+                        max="100"
+                    />
                 </div>
             </div>
         </div>
