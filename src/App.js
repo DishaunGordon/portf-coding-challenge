@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import UseAxios from './hooks/useAxios';
 import Header from './components/Header';
-import Graph from './components/Graph';
+import MainBody from './components/MainBody';
 
 function App() {
   // States
@@ -33,11 +33,13 @@ function App() {
         endDate={endDate} handleSetEndDate={handleSetEndDate}
         abvFilter={abvFilter} handleSetAbvFilter={handleSetAbvFilter}
       />
-      <Graph data={data} />
+      <MainBody 
+        data={data}
+        isLoading={isLoading}
+        error={error}
+      />
     </div>
   )
 }
 
 export default App;
-
-//TODO -- Fix - Says setStartDate isn't a function when datepicker in <Header /> tries to update it 
