@@ -27,7 +27,7 @@ function App() {
   
   // JSX
   return (
-    <div className="container">
+    <div className="app-container">
       <Header 
         startDate={startDate} handleSetStartDate={handleSetStartDate}
         endDate={endDate} handleSetEndDate={handleSetEndDate}
