@@ -13,7 +13,7 @@ function App() {
   // States
   const {data, isLoading, error} = UseAxios("https://api.punkapi.com/v2/beers?per_page=80");
   const [startDate, setStartDate] = useState(new Date("April, 2007"));
-  const [endDate, setEndDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date("April, 2008"));
   const [abvFilter, setAbvFilter] = useState(10);
 
   // Handles logic that changes state
@@ -46,3 +46,6 @@ function App() {
 }
 
 export default App;
+
+//TODO -- Include logic for abv filter
+//TODO -- Make it look good
