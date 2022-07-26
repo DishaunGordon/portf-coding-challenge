@@ -16,8 +16,6 @@
     width: 80%;
     height: 90vh;
     margin: 5vh auto;
-
-    border: 2px solid blue;
   }
 
 
@@ -27,13 +25,11 @@
 
     display: flex;
     justify-content: space-around;
-    border: 1px solid black;
   }
 
   .header__date--inputContainer {
     display: flex;
     justify-content: space-around;
-    border: 1px solid black;
   }
 
   .header__date--picker {
@@ -43,10 +39,7 @@
 /* MainBody */
   .main-body {
     height: 500px;
-
     width: 100%;
-    border: 1px solid green;
-    /* background-color: green; */
   }
 
 /* Graph */
