@@ -25,7 +25,7 @@ function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvF
                     selected={startDate}
                     onChange={onStartDateChange}
                     dateFormat="MM/yyyy"
-                    minDate={startDate}
+                    minDate={new Date("April, 2007")}
                     maxDate={endDate}
                     showMonthYearPicker
                     showFullMonthYearPicker
@@ -60,3 +60,5 @@ function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvF
 }
 
 export default Header;
+
+//TODO Make it so there are always at least 6 months
