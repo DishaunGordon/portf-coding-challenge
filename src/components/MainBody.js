@@ -14,7 +14,7 @@ function MainBody({ data, isLoading, error }) {
     }
 
     return (
-        <div className="mainBody">
+        <div className="main-body">
             {handleRender()}
         </div>
     )
