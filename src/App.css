@@ -1,18 +1,30 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* body */
   body {
-    margin: 0;
-    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    border: 3px solid yellow;
   }
 
 /* App */
   .app-container {
     width: 80%;
-    margin: 2rem auto;
+    height: 90vh;
+    margin: 5vh auto;
+
+    border: 2px solid blue;
   }
 
 
 /* Header */
   .header {
+    min-height: 4rem;
+
     display: flex;
     justify-content: space-around;
     border: 1px solid black;
@@ -27,4 +39,14 @@
   .header__date--picker {
     margin-right: 1rem;
   }
+
+/* MainBody */
+  .main-body {
+    height: 500px;
+
+    width: 100%;
+    border: 1px solid green;
+    /* background-color: green; */
+  }
+
 /* Graph */
