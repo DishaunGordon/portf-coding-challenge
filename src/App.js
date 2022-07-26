@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import './App.css';
 import "react-datepicker/dist/react-datepicker.css";
 
+import { formatGraphData } from './util/formatGraphData';
+
 import UseAxios from './hooks/useAxios';
 import Header from './components/Header';
 import MainBody from './components/MainBody';
@@ -24,6 +26,7 @@ function App() {
   const handleSetAbvFilter = (newAbvFilter) => {
     setAbvFilter(newAbvFilter);
   }
+
   
   // JSX
   return (
@@ -33,8 +36,8 @@ function App() {
         endDate={endDate} handleSetEndDate={handleSetEndDate}
         abvFilter={abvFilter} handleSetAbvFilter={handleSetAbvFilter}
       />
-      <MainBody 
-        data={data}
+      <MainBody
+        data={formatGraphData(startDate, endDate, data)}
         isLoading={isLoading}
         error={error}
       />
