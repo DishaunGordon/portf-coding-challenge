@@ -1,4 +1,4 @@
-export const formatGraphData = (startDate, endDate, data = null) => {
+export const formatGraphData = (startDate, endDate, abv, data = null) => {
     if (data == null) {return []}
     // Returns date as two variables: month and year
     const getDate = (date) => {
@@ -26,7 +26,6 @@ export const formatGraphData = (startDate, endDate, data = null) => {
             let formattedMonth = month;
             const regexSingleDigit = /^\d\/\d\d$/;
             if (regexSingleDigit.test(formattedMonth)) {
-                console.log("FORMATTING")
                 formattedMonth = `0${formattedMonth}`;
             }
             return formattedMonth
@@ -35,7 +34,7 @@ export const formatGraphData = (startDate, endDate, data = null) => {
     }
 
     // Returns the data only containing: id, abv and first_brewed date
-    const extractNeededData = (data) => {
+    const extractNeededData = (data, abv) => {
         const neededData = data.map(brewed => {
             const beer = {
                 id: brewed?.id,
@@ -44,7 +43,8 @@ export const formatGraphData = (startDate, endDate, data = null) => {
             }
             return beer;
         })
-        return neededData;
+        const filteredData = (abv == "") ? neededData : neededData.filter(beer => beer.abv === Number(abv));
+        return filteredData;
     }
 
     // Returns data which all have the same month format with no leading '0's
@@ -70,11 +70,6 @@ export const formatGraphData = (startDate, endDate, data = null) => {
             formattedObject.month = month;
             formattedObject.totalBrewed = 0;
             data.forEach(beer => {
-                console.log({
-                    beer: beer.first_brewed,
-                    month: month,
-                    match: beer.first_brewed === month
-                })
                 if (beer.first_brewed === month) {
                     formattedObject.totalBrewed++;
                 }
@@ -86,7 +81,7 @@ export const formatGraphData = (startDate, endDate, data = null) => {
     }
 
     const neededMonthsArr = generateNeededMonths(startDate, endDate);
-    const neededData = extractNeededData(data);
+    const neededData = extractNeededData(data, abv);
     const monthFormattedData = formatMonths(neededData);
     return generateGraphData(monthFormattedData)
 }
