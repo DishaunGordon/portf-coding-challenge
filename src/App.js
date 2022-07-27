@@ -14,7 +14,7 @@ function App() {
   const {data, isLoading, error} = UseAxios("https://api.punkapi.com/v2/beers?per_page=80");
   const [startDate, setStartDate] = useState(new Date("April, 2007"));
   const [endDate, setEndDate] = useState(new Date("April, 2008"));
-  const [abvFilter, setAbvFilter] = useState(10);
+  const [abvFilter, setAbvFilter] = useState("");
 
   // Handles logic that changes state
   const handleSetStartDate = (newStartDate) => {
@@ -37,7 +37,7 @@ function App() {
         abvFilter={abvFilter} handleSetAbvFilter={handleSetAbvFilter}
       />
       <MainBody
-        data={formatGraphData(startDate, endDate, data)}
+        data={formatGraphData(startDate, endDate, abvFilter, data)}
         isLoading={isLoading}
         error={error}
       />
