@@ -9,7 +9,7 @@ function MainBody({ data, isLoading, error }) {
 
     const handleRender = () => {
         if (error) return <ErrorHandler error={error} />
-        if (isLoading) return <BallTriangle />
+        if (isLoading) return <BallTriangle wrapperClass="main-body__spinner" />
         return <Graph data={data} />
     }
 
@@ -17,6 +17,7 @@ function MainBody({ data, isLoading, error }) {
         <div className="main-body">
             {handleRender()}
         </div>
+        
     )
 }
 
