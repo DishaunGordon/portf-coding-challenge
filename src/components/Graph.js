@@ -3,6 +3,19 @@ import { ResponsiveBar } from '@nivo/bar';
 
 function Graph({ data }) {
 
+    // Functions
+    const formatBottomAxis = (v) => { // Decides if ticks at bottom should skip a month (Not enough space to display all months)
+        const generateValuesToShow = () => {
+            if (data?.length >= 50) return data?.map((v,i)=>i % 2 === 1 ? '' : v)
+            return data;
+        }
+        const valuesToShow = generateValuesToShow()
+        return valuesToShow.find(vts => vts.month === v) ? v : ""
+    }
+    const formatLeftAxis = (numberBrewed) => { // Removes floating point numbers from y axis
+        return Math.floor(numberBrewed) === numberBrewed && numberBrewed
+    }
+
     return ( 
         <>
             <ResponsiveBar
@@ -28,17 +41,22 @@ function Graph({ data }) {
         axisTop={null}
         axisRight={null}
         axisBottom={{
+            format: formatBottomAxis,
+            tickCount: 10,
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 90,
+            tickValues: 20,
             legend: 'Month',
             legendPosition: 'middle',
             legendOffset: 45
         }}
         axisLeft={{
+            format: formatLeftAxis,
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
+            // tickValues: 20,
             legend: 'Total brewed at start of month',
             legendPosition: 'middle',
             legendOffset: -40
