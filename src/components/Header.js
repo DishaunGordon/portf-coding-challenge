@@ -19,7 +19,7 @@ function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvF
     return ( 
         <div className="header">
             <div className="header__date">
-                <div className="header__date--title">Date</div>
+                <div className="header__date--title">Date Range</div>
                 <div className="header__date--inputContainer">
                 <DatePicker className="header__date--picker header__date--pickerStart"
                     selected={startDate}
@@ -30,6 +30,7 @@ function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvF
                     showMonthYearPicker
                     showFullMonthYearPicker
                 />
+                <span>-</span>
                 <DatePicker className="header__date--picker header__date--pickerEnd"
                     selected={endDate}
                     onChange={onEndDateChange}
@@ -60,5 +61,3 @@ function Header({ startDate, handleSetStartDate, endDate, handleSetEndDate, abvF
 }
 
 export default Header;
-
-//TODO Make it so there are always at least 6 months
