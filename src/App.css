@@ -71,6 +71,10 @@
     margin-left: 1rem;
   }
 
+  .header__abv {
+    margin: 0 1rem 0 1rem;
+  }
+
 /* MainBody */
   .main-body {
     height: 500px;
