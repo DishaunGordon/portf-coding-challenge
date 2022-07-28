@@ -12,8 +12,8 @@ import MainBody from './components/MainBody';
 function App() {
   // States
   const {data, isLoading, error} = UseAxios("https://api.punkapi.com/v2/beers?per_page=80");
-  const [startDate, setStartDate] = useState(new Date("April, 2007"));
-  const [endDate, setEndDate] = useState(new Date("April, 2008"));
+  const [startDate, setStartDate] = useState(new Date("Apr 01 2007"));
+  const [endDate, setEndDate] = useState(new Date("Apr 01 2008"));
   const [abvFilter, setAbvFilter] = useState("");
 
   // Handles logic that changes state
